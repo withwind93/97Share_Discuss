@@ -1,0 +1,83 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="aspx_MasterPage" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+<!-- CSS -->
+    <link rel="stylesheet" href="~/css/style.css" />
+    
+    <asp:ContentPlaceHolder ID="my_head" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="body" style="top: 0px">
+            <div id="wrapper">
+                <div class="main">
+                    <div class="container">
+                        <!-- Head -->
+                        <div class="sixteen columns header">
+                            <div class="welcome">Share anything!Welcome to 97share!</div>
+                            <div class="login_style">
+                                <table>
+                                    <tr>
+                                        <td width="30%">
+                                            <asp:HyperLink ID="HyperLink1" runat="server" Text="登录" NavigateUrl="~/aspx/Login.aspx"></asp:HyperLink></td>
+                                        <td width="30%">
+                                            <asp:HyperLink ID="HyperLink2" runat="server" Text="注册" NavigateUrl="~/aspx/Register.aspx"></asp:HyperLink></td>
+                                        <td width="30%">
+                                            <asp:HyperLink ID="HyperLink3" runat="server" Text="忘记密码" NavigateUrl="~/aspx/Forget.aspx"></asp:HyperLink></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- Logo -->
+                        <div class="sixteen columns top">
+                            <div class="logo four columns alpha">
+                                <a href="Default.aspx">
+                                    <img src="../images/logo.png" alt="" width="180px" height="50px" /></a>
+                            </div>
+                            <div class="navigation twelve columns alpha omega">
+                                <asp:ContentPlaceHolder ID="Active" runat="server">
+                                </asp:ContentPlaceHolder>
+                            </div>
+                            <div class="clear"></div>
+                            <div id="separator"><span></span></div>
+
+                        </div>
+                        <div class="clear"></div>
+                        <!-- my_div-->
+                        <div style="text-align:center;">
+                        <asp:ContentPlaceHolder ID="my_div" runat="server">
+                        </asp:ContentPlaceHolder>
+                        </div>
+                    </div>
+                    <!-- END contain-->
+                    <a id="goto_top" href="#"></a>
+                </div>
+                <!--END main-->
+            </div>
+            <!--END wrapper -->
+            <div id="footer">
+                <div id="f_line"></div>
+            </div>
+            <!--END footer -->
+            <div id="footer_bottom">
+                <div class="container">
+                    <div class="sixteen columns">
+                        <div class="copyright ten columns alpha">Copyright &copy; 2013. All Rights Reserved</div>
+                        <div class="links six columns alpha omega">
+                            <a href="Default.aspx">主页</a> | <a href="About.aspx">关于我们</a> | <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">友情链接：模板之家</a>
+                        </div>
+                        </div>
+                </div>
+            </div>
+            <!--END footer_botton-->
+        </div>
+        <!-- END body-->
+    </form>
+</body>
+</html>

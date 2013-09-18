@@ -1,0 +1,56 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/aspx/MasterPage.master" AutoEventWireup="true" CodeFile="manager.aspx.cs" Inherits="aspx_manager" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="my_head" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="Active" Runat="Server">
+      <ul id="nav" class="sf-menu sf-shadow">
+        <li>
+            <a data-description="欢迎来到论坛" href="Default.aspx">主页</a>
+        </li>
+        <li class="active">
+            <a data-description="论坛主要模块">模块</a>
+            <ul>
+                <li><asp:LinkButton ID="LinkButton1" runat="server" Text="新生问答" OnClick="LinkButton1_Click"></asp:LinkButton></li>
+                <li><asp:LinkButton ID="LinkButton2" runat="server" Text="校园趣事" OnClick="LinkButton2_Click"></asp:LinkButton></li>
+                <li><asp:LinkButton ID="LinkButton3" runat="server" Text="快乐学习" OnClick="LinkButton3_Click"></asp:LinkButton></li>
+                <li><asp:LinkButton ID="LinkButton4" runat="server" Text="毕业情怀" OnClick="LinkButton4_Click"></asp:LinkButton></li>
+            </ul>
+            <li>
+                <a data-description="团队网站介绍" href="About.aspx">关于我们</a>
+            </li>
+        </li>
+    </ul>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="my_div" Runat="Server">
+
+       <center><p><asp:HyperLink ID="HyperLink1" runat="server" Text="返回"  NavigateUrl="~/aspx/ban.aspx"></asp:HyperLink></p></center>
+<p>
+             <asp:GridView ID="GridView1" runat="server" AllowPaging="True" DataKeyNames="username"
+                            AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource1" 
+                            ForeColor="#333333" GridLines="None" Height="131px" PageSize="20" 
+                            style="text-align:center; margin-left: 20px" Width="900px">
+                            <AlternatingRowStyle BackColor="White" />
+                            <Columns>                             
+                                <asp:BoundField DataField="username" HeaderText="会员" SortExpression="username" />                                                             
+                                <asp:CommandField HeaderText="删除" ShowDeleteButton="True" Visible="True" />
+                            </Columns>
+                            <EditRowStyle BackColor="#7C6F57" />
+                            <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                            <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                            <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+                            <RowStyle BackColor="#E3EAEB" />
+                            <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
+                            <SortedAscendingCellStyle BackColor="#F8FAFA" />
+                            <SortedAscendingHeaderStyle BackColor="#246B61" />
+                            <SortedDescendingCellStyle BackColor="#D4DFE1" />
+                            <SortedDescendingHeaderStyle BackColor="#15524A" />
+                        </asp:GridView>
+                        <asp:SqlDataSource ID="SqlDataSource1" runat="server"                         
+                            ConnectionString="<%$ ConnectionStrings:forumConnectionString %>"
+                            SelectCommand="SELECT [username] FROM [forum_user]" 
+                            DeleteCommand="delete from forum_user where username=@username"  >                                                                               
+                        </asp:SqlDataSource>
+        </p>
+
+</asp:Content>
+
